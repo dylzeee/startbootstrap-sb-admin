@@ -39,7 +39,9 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-sb-admin.git"
     },
     "dependencies": {
-        "bootstrap": "4.5.0"
+        "axios": "^0.20.0",
+        "bootstrap": "4.5.0",
+        "node-sass": "^4.14.1"
     },
     "devDependencies": {
         "autoprefixer": "9.8.0",

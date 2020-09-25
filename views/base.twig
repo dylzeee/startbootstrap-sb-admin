@@ -1,0 +1,20 @@
+{% block head_container %}
+
+{% include 'header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+<div id="layoutSidenav">
+
+        {{ include('sidebar.twig') }}
+
+            <div id="layoutSidenav_content">
+
+            {{ include( 'content-main.twig' ) }}
+
+            {{ include( 'footer.twig' ) }}
+
+                
+               

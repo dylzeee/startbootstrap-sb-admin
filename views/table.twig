@@ -1,0 +1,38 @@
+<div class="card mb-4">
+    <div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+        Latest Tickets
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Status</th>
+                        <th>Last Reply</th>
+                        <th>Opened</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Status</th>
+                        <th>Last Reply</th>
+                        <th>Opened</th>
+                    </tr>
+                </tfoot>
+                <tbody>     
+                {% for ticket in tickets %}                                                                              
+                    <tr>
+                        <td><a href="{{ ticket.guid }}"> {{ ticket.post_title }} </a></td>
+                        <td> {{ ticket.post_status }} </td>
+                        <td> {{ ticket.post_modified}} </td>
+                        <td> {{ ticket.post_date }} </td>
+                    </tr>  
+                {% endfor %}                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
