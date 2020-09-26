@@ -1,9 +1,16 @@
 <div class="card mb-4">
     <div class="card-header">
     <i class="fas fa-table mr-1"></i>
-        Latest Tickets
+        Open Tickets
     </div>
     <div class="card-body">
+      
+       {% if ticket == false %}
+       <div> 
+            <p> You haven't opened a ticket yet, click here to open a new ticket now. </p>
+       </div>
+       {% endif %}
+       
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -23,12 +30,60 @@
                     </tr>
                 </tfoot>
                 <tbody>     
-                {% for ticket in tickets %}                                                                              
+                {% for tickets in ticket %}                                                                             
                     <tr>
-                        <td><a href="{{ ticket.guid }}"> {{ ticket.post_title }} </a></td>
-                        <td> {{ ticket.post_status }} </td>
-                        <td> {{ ticket.post_modified}} </td>
-                        <td> {{ ticket.post_date }} </td>
+                        <td><a href="{{ ticket[loop.index0].guid }}">{{ ticket[loop.index0].post_title }}</a></td>
+                        <td> {{ ticket[loop.index0].post_status }} </td>
+                        <td> {{ post_modified[loop.index0] }} </td>
+                        <td> {{ ticket[loop.index0].post_date|date("d/m/Y H:i:s") }}</td>
+                    </tr>  
+                {% endfor %}                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{# Closed Tickets Table  #}
+
+<div class="card mb-4">
+    <div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+        Closed Tickets
+    </div>
+    <div class="card-body">
+      
+       {% if ticket == false %}
+       <div> 
+            <p> You haven't opened a ticket yet, click here to open a new ticket now. </p>
+       </div>
+       {% endif %}
+       
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Status</th>
+                        <th>Last Reply</th>
+                        <th>Opened</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Status</th>
+                        <th>Last Reply</th>
+                        <th>Opened</th>
+                    </tr>
+                </tfoot>
+                <tbody>     
+                {% for tickets in ticket %}                                                                             
+                    <tr>
+                        <td><a href="{{ ticket[loop.index0].guid }}">{{ ticket[loop.index0].post_title }}</a></td>
+                        <td> {{ ticket[loop.index0].post_status }} </td>
+                        <td> {{ post_modified[loop.index0] }} </td>
+                        <td> {{ ticket[loop.index0].post_date|date("d/m/Y H:i:s") }}</td>
                     </tr>  
                 {% endfor %}                    
                 </tbody>

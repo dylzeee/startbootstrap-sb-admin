@@ -47,6 +47,13 @@
     //         }
     //     })
     // })
+    var responseTimes = result.monitors[0].response_times;
+                var times = [];
+            for (var i = 0; i < responseTimes.length; i++) {
+                let dateTime = responseTimes[i].datetime;
+                date = new Date();
+                times.push(date.getHours(dateTime));
+
     var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
         type: 'bar',
